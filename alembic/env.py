@@ -1,8 +1,6 @@
 from logging.config import fileConfig
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-from database import Base, DATABASE_URI
-
 from alembic import context
 
 # this is the Alembic Config object, which provides
@@ -14,6 +12,9 @@ config = context.config
 fileConfig(config.config_file_name)
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+
+from database import Base, DATABASE_URI, User
+
 config.set_main_option('sqlalchemy.url', DATABASE_URI)
 # add your model's MetaData object here
 # for 'autogenerate' support

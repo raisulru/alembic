@@ -42,7 +42,7 @@ class Chatbot(Base):
     created_at = Column(DateTime, nullable=False, default=func.now())
     active = Column(Boolean, default=True)
     deleted_at = Column(DateTime, nullable=True, default=func.now())
-    user_id = Column(ForeignKey('users.user_id'), nullable=False, index=True)
+    # user_id = Column(ForeignKey('users.user_id'), nullable=False, index=True)
     name = Column(String(30), nullable=False)
     description = Column(String, nullable=False)
     language = Column(String(30), nullable=False)
@@ -51,7 +51,7 @@ class Chatbot(Base):
     company_id = Column(ForeignKey('company.company_id'), nullable=False, index=True)
 
     company = relationship(Company)
-    users = relationship(User)
+    # users = relationship(User)
 
 
 class DataSet(Base):
@@ -60,11 +60,11 @@ class DataSet(Base):
     dataset_id = Column(UUID(as_uuid=True), primary_key=True)
     name = Column(String(30), nullable=False)
     created_at = Column(DateTime, nullable=False, default=func.now())
-    user_id = Column(ForeignKey('users.user_id'), nullable=False, index=True)
+    # user_id = Column(ForeignKey('users.user_id'), nullable=False, index=True)
     language = Column(String(30), nullable=False)
     deleted_at = Column(DateTime, nullable=True, default=func.now())
     company_id = Column(ForeignKey('company.company_id'), nullable=False, index=True)
 
     company = relationship(Company)
-    users = relationship(User)
+    # users = relationship(User)
 
